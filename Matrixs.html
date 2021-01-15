@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrixs 1D</title>
+    <style>
+        body {
+            font-family: Arial;
+            font-size: 10;
+        }
+
+        table{
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+
+        }
+        table th{
+            background-color: #F7F7F7;
+            color: #333;
+            font-weight: bold;
+        }
+
+        table th, table td{
+            padding: 5px;
+            border-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Matrixs</h1>
+    <input type="button" value="Generate Table" onclick="buattable()"/>
+    <div id="dvtable"></div>
+    <script type="text/javascript">
+    function buattable(){
+        var angka = new Array();
+
+        //buat table HTML
+        table = document.createElement("TABLE");
+        table.border = "1";
+
+        //ambil data column
+        columncount = angka[0].length;
+
+        //header
+        row = table.insertRow(-1);
+        for (var i=0; i < columncount; i++){
+            headerCell = document.createElement("TH");
+            headerCell.innerHTML = angka[0][i];
+            row.appenChild(headerCell)
+        }
+
+        //tambah data row
+        for(i = 1; i< angka.length; i++){
+            row = table.insertRow(-1);
+            for(j = 0; j < columncount; j++){
+                cell = row.insertCell(-1);
+                cell.innerHTML = customers[i][j];
+            }
+        }
+
+        dvTable = document.getElementById("dvTable");
+        dvTable.innerHTML = "";
+        dvTable.appenChild(table);
+
+    }
+    </script>
+</body>
+</html>
